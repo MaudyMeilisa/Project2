@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
+use App\Models\Pasien;
+use App\Models\Dokter;
+use App\Models\Poliklinik;
+use App\Models\Obat;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
@@ -31,7 +35,11 @@ class PendaftaranController extends Controller
         //
         //mengambil data 'pasien','dokter','poli','obat'
         $pendaftaran = Pendaftaran::all();
-        return view('admin.pendaftaran.create', compact('pendaftaran'));
+        $pasien = Pasien::all();
+        $dokter = Dokter::all();
+        $poliklinik = Poliklinik::all();
+        $obat = Obat::all();
+        return view('admin.pendaftaran.create', compact('pendaftaran','pasien','dokter','poliklinik','obat'));
     }
 
     /**

@@ -33,23 +33,28 @@ Route::get('tes-admin',function(){
     return view('layouts.admin');
 });
 
-Route::get('galery',function(){
-    return view('layouts.galery');
-});
-Route::get('profil',function(){
-    return view('layouts.profil');
-});
+
 
 //Admin Route
-Route :: group(['prefix'=>'admin','middleware'=>['auth']],
+Route :: group(['prefix'=>'admin','middleware'=>['auth', 'role:admin']],
 function(){
-    Route::get('/',function(){
-        return view('admin.index');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']) -> name ('home');
     });
+//Member Route
+Route :: group(['prefix'=>'user','middleware'=>['auth', 'role:member']],
+function(){
+    Route::get('/sample', [App\Http\Controllers\HomeController::class, 'index2']) -> name ('home');
+});
+
     Route::resource('dokter', DokterController::class);
     Route::resource('pasien', PasienController::class);
     Route::resource('poliklinik', PoliklinikController::class);
     Route::resource('obat', ObatController::class);
     Route::resource('pendaftaran', PendaftaranController::class);
-});
+    Route::get('galery',function(){
+        return view('layouts.galery');
+    });
+    Route::get('profil',function(){
+        return view('layouts.profil');
+    });
 

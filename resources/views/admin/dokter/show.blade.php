@@ -20,24 +20,23 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for=""> Nama Dokter</label>
-                        <input type="text" name="nm_dokter" value="{{$dokter->name}}" class="form-control" readonly>
+                        <input type="text" name="nm_dokter" value="{{$dokter->nm_dokter}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for=""> NIK</label>
-                        <input type="number" name="nik" value="{{$dokter->name}}" class="form-control" readonly>
+                        <input type="number" name="nik" value="{{$dokter->nik}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for=""> Gender</label>
-                        <input type="radio" name="gender" value="{{$dokter->name}}" class="form-control" readonly> Laki-laki<br>
-                            <input type="radio" name="gender" value="{{$dokter->name}}" class="form-control" readonly> Perempuan<br>
+                        <input type="text" name="gender" value="{{$dokter->gender}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for=""> Spesialis</label>
-                        <input type="text" name="spesialis" value="{{$dokter->name}}" class="form-control" readonly>
+                        <input type="text" name="spesialis" value="{{$dokter->spesialis}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for=""> No Handphone</label>
-                        <input type="number" name="no_hp" value="{{$dokter->name}}" class="form-control" readonly>
+                        <input type="number" name="no_hp" value="{{$dokter->no_hp}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <a href="{{url('admin/dokter')}}" class="btn btn-block btn-outline-primary">Kembali</a>

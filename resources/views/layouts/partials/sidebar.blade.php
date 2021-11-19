@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/gallery.html" class="nav-link">
+            <a href="/galery" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Gallery
@@ -69,19 +69,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./dokter" class="nav-link">
+                <a href="./admin/dokter" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Dokter</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./poliklinik" class="nav-link">
+                <a href="./admin/poliklinik" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Poliklinik</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./obat" class="nav-link">
+                <a href="./admin/obat" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Obat</p>
                 </a>

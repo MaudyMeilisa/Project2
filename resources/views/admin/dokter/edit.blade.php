@@ -18,12 +18,12 @@
             <div class="card">
                 <div class="card-header">Data Dokter</div>
                 <div class="card-body">
-                   <form action="{{route('dokter.update',$dokter->first()->id)}}" method="post">
+                   <form action="{{route('dokter.update',$dokter->id)}}" method="post">
                         @csrf
                         @method('put')
                         <div class="form-group">
                             <label for="">Masukan Nama Dokter</label>
-                            <input type="text" name="nm_dokter" value="{{$dokter->first()->nm_dokter}}" class="form-control @error('nm_dokter') is-invalid @enderror">
+                            <input type="text" name="nm_dokter" value="{{$dokter->nm_dokter}}" class="form-control @error('nm_dokter') is-invalid @enderror">
                              @error('nm_dokter')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">NIK</label>
-                            <input type="number" name="nik" value="{{$dokter->first()->nik}}" class="form-control @error('nik') is-invalid @enderror">
+                            <input type="number" name="nik" value="{{$dokter->nik}}" class="form-control @error('nik') is-invalid @enderror">
                              @error('nik')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Gender</label>
-                            <input type="text" name="gender" value="{{$dokter->first()->gender}}" class="form-control @error('gender') is-invalid @enderror">
+                            <input type="text" name="gender" value="{{$dokter->gender}}" class="form-control @error('gender') is-invalid @enderror">
                              @error('gender')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Spesialis</label>
-                            <input type="text" name="spesialis" value="{{$dokter->first()->spesialis}}" class="form-control @error('spesialis') is-invalid @enderror">
+                            <input type="text" name="spesialis" value="{{$dokter->spesialis}}" class="form-control @error('spesialis') is-invalid @enderror">
                              @error('spesialis')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Masukan No Handphone</label>
-                            <input type="number" name="no_hp" value="{{$dokter->first()->no_hp}}" class="form-control @error('no_hp') is-invalid @enderror">
+                            <input type="number" name="no_hp" value="{{$dokter->no_hp}}" class="form-control @error('no_hp') is-invalid @enderror">
                              @error('no_hp')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

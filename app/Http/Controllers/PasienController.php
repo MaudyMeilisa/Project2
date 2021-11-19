@@ -12,6 +12,11 @@ class PasienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+    $this->middleware('auth');
+    }
+
     public function index()
     {
        //
@@ -70,7 +75,7 @@ class PasienController extends Controller
     public function show($id)
     {
         //
-        $pasien = Pasien::all();
+        $pasien = Pasien::findOrFail($id);
         return view('admin.pasien.show', compact('pasien'));
     }
 
@@ -108,13 +113,13 @@ class PasienController extends Controller
             'no_hp' => 'required',
         ]);
 
-        $pasien = Pasien::all();
-        $pasien->nama = $request->nama;
-        $pasien->nik = $request->nik;
-        $pasien->gender = $request->gender;
+        $pasien = Pasien::findOrFail($id);
+        $pasien->nama      = $request->nama;
+        $pasien->nik       = $request->nik;
+        $pasien->gender    = $request->gender;
         $pasien->tgl_lahir = $request->tgl_lahir;
-        $pasien->alamat = $request->alamat;
-        $pasien->no_hp = $request->no_hp;
+        $pasien->alamat    = $request->alamat;
+        $pasien->no_hp     = $request->no_hp;
         $pasien->save();
         return redirect()->route('pasien.index');
     }
@@ -129,7 +134,7 @@ class PasienController extends Controller
     public function destroy($id)
     {
         //
-        $pasien = Pasien::all();
+        $pasien = Pasien::findOrFail($id);
         $pasien->delete();
         return redirect()->route('pasien.index');
     }

@@ -12,6 +12,11 @@ class PoliklinikController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+    $this->middleware('auth');
+    }
+
     public function index()
     {
        //
@@ -60,7 +65,7 @@ class PoliklinikController extends Controller
     public function show($id)
     {
         //
-        $poliklinik = Poliklinik::all();
+        $poliklinik = Poliklinik::findOrFail($id);
         return view('admin.poliklinik.show', compact('poliklinik'));
     }
 
@@ -73,7 +78,7 @@ class PoliklinikController extends Controller
     public function edit($id)
     {
         //
-        $poliklinik = Poliklinik::all();
+        $poliklinik = Poliklinik::findOrFail($id);
         return view('admin.poliklinik.edit', compact('poliklinik'));
     }
 
@@ -93,7 +98,7 @@ class PoliklinikController extends Controller
             'nm_poli' => 'required',
         ]);
 
-        $poliklinik = Poliklinik::all();
+        $poliklinik = Poliklinik::findOrFail($id);
         $poliklinik->nm_poli = $request->nm_poli;
         $poliklinik->save();
         return redirect()->route('poliklinik.index');
@@ -109,7 +114,7 @@ class PoliklinikController extends Controller
     public function destroy($id)
     {
         //
-        $poliklinik = Poliklinik::all();
+        $poliklinik = Poliklinik::findOrFail($id);
         $poliklinik->delete();
         return redirect()->route('poliklinik.index');
     }

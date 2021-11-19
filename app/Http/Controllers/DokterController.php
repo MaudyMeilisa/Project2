@@ -12,6 +12,11 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
        //
@@ -68,7 +73,7 @@ class DokterController extends Controller
     public function show($id)
     {
         //
-        $dokter = Dokter::all();
+        $dokter = Dokter::findOrFail($id);
         return view('admin.dokter.show', compact('dokter'));
     }
 
@@ -81,7 +86,7 @@ class DokterController extends Controller
     public function edit($id)
     {
         //
-        $dokter = Dokter::all();
+        $dokter = Dokter::findOrFail($id);
         return view('admin.dokter.edit', compact('dokter'));
     }
 
@@ -105,7 +110,7 @@ class DokterController extends Controller
             'no_hp' => 'required',
         ]);
 
-        $dokter = Dokter::all();
+        $dokter = Dokter::findOrFail($id);
         $dokter->nm_dokter = $request->nm_dokter;
         $dokter->nik = $request->nik;
         $dokter->gender = $request->gender;
@@ -125,7 +130,7 @@ class DokterController extends Controller
     public function destroy($id)
     {
         //
-        $dokter = Dokter::all();
+        $dokter = Dokter::findOrFail($id);
         $dokter->delete();
         return redirect()->route('dokter.index');
     }

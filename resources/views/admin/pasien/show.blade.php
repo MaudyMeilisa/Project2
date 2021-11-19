@@ -19,17 +19,16 @@
                 <div class="card-header">Data Pasien</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for=""> Nama Pasien</label>
+                        <label for="">Nama Pasien</label>
                         <input type="text" name="nama" value="{{$pasien->nama}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for=""> NIK</label>
+                        <label for="">NIK</label>
                         <input type="number" name="nik" value="{{$pasien->nik}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for=""> Gender</label>
-                        <input type="radio" name="gender" value="{{$pasien->gender}}" class="form-control" readonly> Laki-laki<br>
-                            <input type="radio" name="gender" value="{{$pasien->gender}}" class="form-control" readonly> Perempuan<br>
+                        <label for="">Gender</label>
+                        <input type="text" name="gender" value="{{$pasien->gender}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for=""> Tanggal Lahir</label>

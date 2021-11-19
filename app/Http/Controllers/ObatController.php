@@ -64,7 +64,7 @@ class ObatController extends Controller
     public function show($id)
     {
         //
-        $obat = Pasien::all();
+        $obat = Obat::findOrFail($id);
         return view('admin.obat.show', compact('obat'));
     }
 
@@ -74,10 +74,15 @@ class ObatController extends Controller
      * @param  \App\Models\Obat  $obat
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+    $this->middleware('auth');
+    }
+
     public function edit($id)
     {
         //
-        $obat = Obat::all();
+        $obat = Obat::findOrFail($id);
         return view('admin.obat.edit', compact('obat'));
     }
 
@@ -99,7 +104,7 @@ class ObatController extends Controller
             'jenis_obat' => 'required',
         ]);
 
-        $obat = Obat::all();
+        $obat = Obat::findOrFail($id);
         $obat->kd_obat = $request->kd_obat;
         $obat->nm_obat = $request->nm_obat;
         $obat->jenis_obat = $request->jenis_obat;
@@ -117,7 +122,7 @@ class ObatController extends Controller
     public function destroy($id)
     {
         //
-        $obat = Obat::all();
+        $obat = Obat::findOrFail($id);
         $obat->delete();
         return redirect()->route('obat.index');
     }
